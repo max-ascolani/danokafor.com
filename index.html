@@ -3,152 +3,458 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Okafor — Senior Software Engineer</title>
+    <title>Daniel Okafor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-                    colors: { accent: '#264653' }
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        surface: '#0d1117',
+                        raised: '#161b22',
+                        border: '#30363d',
+                        muted: '#8b949e',
+                        fg: '#c9d1d9',
+                        bright: '#e6edf3',
+                        blue: '#264653',
+                        blueLight: '#2a9d8f',
+                        gold: '#E9C46A',
+                    }
                 }
             }
         }
     </script>
     <style>
-        * { font-family: 'Inter', system-ui, sans-serif; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        ::selection { background: #264653; color: #e6edf3; }
+        .stat-num { font-variant-numeric: tabular-nums; }
     </style>
 </head>
-<body class="bg-white text-gray-800 antialiased">
+<body class="bg-surface text-fg antialiased">
 
-    <!-- Header -->
-    <header class="bg-[#264653]">
-        <div class="max-w-3xl mx-auto px-6 py-16 sm:py-20">
-            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
-                <img src="headshot.png" alt="Daniel Okafor" class="w-28 h-28 sm:w-[120px] sm:h-[120px] rounded-full object-cover border-[3px] border-white/15 shadow-lg flex-shrink-0">
-                <div class="text-center sm:text-left">
-                    <h1 class="text-3xl sm:text-4xl font-bold text-white">Daniel Okafor</h1>
-                    <p class="mt-2 text-lg text-[#E9C46A] font-medium">Senior Software Engineer</p>
-                    <p class="mt-1 text-sm text-gray-300">San Francisco, CA</p>
-                </div>
+    <!-- Nav -->
+    <nav class="border-b border-border">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+            <span class="font-mono text-sm font-medium text-bright">danielokafor<span class="text-blueLight">.me</span></span>
+            <div class="flex items-center gap-6 text-sm text-muted">
+                <a href="#work" class="hover:text-bright transition-colors">Work</a>
+                <a href="#oss" class="hover:text-bright transition-colors">Open Source</a>
+                <a href="#about" class="hover:text-bright transition-colors">About</a>
+                <a href="https://github.com/danielokafor" target="_blank" rel="noopener" class="hover:text-bright transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <main class="max-w-3xl mx-auto px-6">
+    <main class="max-w-4xl mx-auto px-6">
+
+        <!-- Hero -->
+        <section class="py-16 sm:py-24">
+            <div class="flex flex-col sm:flex-row items-start gap-8">
+                <img src="headshot.png" alt="Daniel Okafor" class="w-24 h-24 rounded-lg object-cover border border-border flex-shrink-0">
+                <div>
+                    <h1 class="text-2xl sm:text-3xl font-semibold text-bright">Daniel Okafor</h1>
+                    <p class="mt-2 text-muted text-base leading-relaxed max-w-xl">
+                        Senior software engineer focused on backend systems, distributed architectures, and observability.
+                        Currently at <span class="text-fg">Arclight Security</span>, building threat detection infrastructure that processes
+                        billions of events per day. Previously built ML serving systems at Cortex Labs and API observability
+                        tooling at Relay Systems.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-sm text-muted">
+                        <span>San Francisco, CA</span>
+                        <span class="text-border">|</span>
+                        <span>Georgia Tech '19</span>
+                        <span class="text-border">|</span>
+                        <a href="mailto:daniel@danielokafor.me" class="text-blueLight hover:text-bright transition-colors">daniel@danielokafor.me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What I've Built -->
+        <section id="work" class="pb-16 sm:pb-24">
+            <h2 class="font-mono text-xs font-medium text-muted uppercase tracking-widest mb-10">
+                <span class="text-blueLight">#</span> What I've Built
+            </h2>
+
+            <!-- Project 1 -->
+            <article class="mb-14">
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                    <h3 class="text-lg font-semibold text-bright">Real-Time Threat Detection Pipeline</h3>
+                    <span class="font-mono text-xs text-muted mt-1 sm:mt-0">Arclight Security / 2023-present</span>
+                </div>
+                <p class="text-sm text-muted mb-4 leading-relaxed max-w-2xl">
+                    Replaced a batch-oriented detection system (15-min cycles) with a streaming architecture.
+                    The old system meant attackers had established persistence before alerts fired. The new design
+                    uses Kafka for event ingestion, Go consumer services for rule evaluation, and ClickHouse for
+                    windowed aggregations.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">Go</span>
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">Kafka</span>
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">ClickHouse</span>
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">Redis</span>
+                </div>
+                <p class="text-sm text-fg leading-relaxed max-w-2xl">
+                    <strong class="text-bright">Key decision:</strong> Each rule type gets its own consumer group, so
+                    high-volume simple pattern rules don't bottleneck complex multi-step correlation rules. Built a
+                    custom windowed aggregation layer in Go with in-memory state and Redis checkpoints to avoid
+                    hitting ClickHouse on every event. The state machine engine tracks attack progression across
+                    events for multi-stage detection rules that weren't possible in the batch system.
+                </p>
+                <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">2.3B</p>
+                        <p class="text-xs text-muted mt-0.5">events/day</p>
+                    </div>
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">400+</p>
+                        <p class="text-xs text-muted mt-0.5">tenants</p>
+                    </div>
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">47s</p>
+                        <p class="text-xs text-muted mt-0.5">detection time (was 14min)</p>
+                    </div>
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">-28%</p>
+                        <p class="text-xs text-muted mt-0.5">false positive rate</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="mb-14">
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                    <h3 class="text-lg font-semibold text-bright">Multi-Tenant Data Isolation Layer</h3>
+                    <span class="font-mono text-xs text-muted mt-1 sm:mt-0">Arclight Security / 2023</span>
+                </div>
+                <p class="text-sm text-muted mb-4 leading-relaxed max-w-2xl">
+                    Our first Fortune 500 customer required contractual guarantees of data isolation. The existing
+                    system used application-level WHERE clauses for tenant filtering, which had produced two
+                    near-miss cross-tenant data exposure bugs in QA. A single app bug could have exposed security
+                    telemetry across tenants.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">PostgreSQL RLS</span>
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">Go</span>
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">Connection Pooling</span>
+                </div>
+                <p class="text-sm text-fg leading-relaxed max-w-2xl">
+                    <strong class="text-bright">Key decision:</strong> Three-layer defense-in-depth instead of relying
+                    on any single mechanism. Layer 1: PostgreSQL row-level security policies on all tenant-scoped tables,
+                    enforced via <code class="font-mono text-xs text-blueLight bg-raised px-1 py-0.5 rounded">SET app.current_tenant</code>.
+                    Layer 2: a tenant-aware connection pooler that injects tenant context on every connection checkout.
+                    Layer 3: CI integration tests that attempt cross-tenant reads for every API endpoint.
+                </p>
+                <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">0</p>
+                        <p class="text-xs text-muted mt-0.5">cross-tenant leaks (18 months)</p>
+                    </div>
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-gold stat-num">Passed</p>
+                        <p class="text-xs text-muted mt-0.5">Fortune 500 security audit</p>
+                    </div>
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">3</p>
+                        <p class="text-xs text-muted mt-0.5">teams adopted the pattern</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="mb-14">
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                    <h3 class="text-lg font-semibold text-bright">Monolith-to-Microservices Migration</h3>
+                    <span class="font-mono text-xs text-muted mt-1 sm:mt-0">Arclight Security / 2023-2024</span>
+                </div>
+                <p class="text-sm text-muted mb-4 leading-relaxed max-w-2xl">
+                    180K-line Django monolith with 31% test coverage, circular imports everywhere, 25-minute deploys.
+                    Three frontend teams, two mobile engineers, and six integration partners all consuming the API. A
+                    breaking migration would have been a coordination disaster.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">Go</span>
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">Kong</span>
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">Django</span>
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">GraphQL</span>
+                </div>
+                <p class="text-sm text-fg leading-relaxed max-w-2xl">
+                    <strong class="text-bright">Key decision:</strong> Strangler fig pattern through a Kong API gateway.
+                    Traffic routed to either the monolith or new Go microservices per endpoint. Compatibility tests hit
+                    both old and new implementations and diffed responses before each cutover. Migrated 47 endpoints over
+                    4 months with zero consumer-facing breaking changes. First refactored the monolith internally --
+                    broke 34 circular imports to zero, raised test coverage from 31% to 58% -- then extracted services.
+                </p>
+                <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">95ms</p>
+                        <p class="text-xs text-muted mt-0.5">p99 latency (was 820ms)</p>
+                    </div>
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">47</p>
+                        <p class="text-xs text-muted mt-0.5">endpoints migrated</p>
+                    </div>
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">0</p>
+                        <p class="text-xs text-muted mt-0.5">breaking changes</p>
+                    </div>
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">+40%</p>
+                        <p class="text-xs text-muted mt-0.5">feature velocity</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 4 -->
+            <article class="mb-14">
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                    <h3 class="text-lg font-semibold text-bright">ML Model Serving Infrastructure</h3>
+                    <span class="font-mono text-xs text-muted mt-1 sm:mt-0">Cortex Labs / 2021-2022</span>
+                </div>
+                <p class="text-sm text-muted mb-4 leading-relaxed max-w-2xl">
+                    High-throughput inference gateway for an ML infrastructure platform. The system needed to serve
+                    50M+ requests per day while maintaining p99 under 200ms and surviving 3x traffic spikes without
+                    scaling infrastructure.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">Go</span>
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">Python</span>
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">Kafka</span>
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">AWS EKS</span>
+                </div>
+                <p class="text-sm text-fg leading-relaxed max-w-2xl">
+                    <strong class="text-bright">Key decision:</strong> Request batching plus adaptive load shedding.
+                    When traffic spikes hit, the system sheds lower-priority requests gracefully instead of queuing
+                    everything until timeouts cascade. Also built the A/B experimentation framework for model deployments
+                    with automatic rollback on latency or error-rate regressions.
+                </p>
+                <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">50M+</p>
+                        <p class="text-xs text-muted mt-0.5">requests/day</p>
+                    </div>
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">&lt;200ms</p>
+                        <p class="text-xs text-muted mt-0.5">p99 latency</p>
+                    </div>
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">-$127K</p>
+                        <p class="text-xs text-muted mt-0.5">monthly AWS savings</p>
+                    </div>
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">99.95%</p>
+                        <p class="text-xs text-muted mt-0.5">uptime (was 99.7%)</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 5 -->
+            <article>
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                    <h3 class="text-lg font-semibold text-bright">API Traffic Capture Agent</h3>
+                    <span class="font-mono text-xs text-muted mt-1 sm:mt-0">Relay Systems / 2019-2021</span>
+                </div>
+                <p class="text-sm text-muted mb-4 leading-relaxed max-w-2xl">
+                    Relay needed a way to capture customer API traffic for monitoring without requiring SDK
+                    instrumentation (which had poor adoption because it meant modifying production code). Built
+                    a transparent agent from scratch in Go.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">Go</span>
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">eBPF</span>
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">gRPC</span>
+                    <span class="font-mono text-xs px-2 py-0.5 bg-raised border border-border rounded text-muted">Docker/K8s</span>
+                </div>
+                <p class="text-sm text-fg leading-relaxed max-w-2xl">
+                    <strong class="text-bright">Key decision:</strong> Built as a reverse proxy sidecar using eBPF-based
+                    packet inspection when available, with a fallback to proxy mode. Plugin system for framework-specific
+                    enrichment (Express, Flask, Gin route parameter extraction). Local buffer with at-least-once delivery
+                    guarantees. Customer onboarding dropped from 2 weeks to 30 minutes.
+                </p>
+                <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">180+</p>
+                        <p class="text-xs text-muted mt-0.5">deployments</p>
+                    </div>
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">12M</p>
+                        <p class="text-xs text-muted mt-0.5">requests/day captured</p>
+                    </div>
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">&lt;2ms</p>
+                        <p class="text-xs text-muted mt-0.5">p99 overhead</p>
+                    </div>
+                    <div class="bg-raised border border-border rounded-lg px-3 py-2">
+                        <p class="font-mono text-lg font-semibold text-blueLight stat-num">70%</p>
+                        <p class="text-xs text-muted mt-0.5">of closed deals cited agent</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <div class="h-px bg-border"></div>
+
+        <!-- Open Source -->
+        <section id="oss" class="py-16 sm:py-24">
+            <h2 class="font-mono text-xs font-medium text-muted uppercase tracking-widest mb-10">
+                <span class="text-blueLight">#</span> Open Source
+            </h2>
+
+            <div class="space-y-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <h3 class="font-semibold text-bright">Cortex CLI</h3>
+                        <span class="font-mono text-xs text-muted">1.2K stars</span>
+                    </div>
+                    <p class="text-sm text-muted leading-relaxed max-w-2xl mb-2">
+                        Added multi-model endpoint support to the open-source Cortex CLI. Designed the traffic
+                        routing specification (weighted, header-based, automatic rollback) as a backward-compatible
+                        extension to the existing YAML config format. Three PRs merged: core routing engine, CLI
+                        management commands, and documentation.
+                    </p>
+                    <p class="text-sm text-fg">
+                        Adopted by 60% of enterprise customers within 6 months. Two community members contributed
+                        follow-up improvements building on the routing engine.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <h3 class="font-semibold text-bright">otel-go-kit</h3>
+                        <span class="font-mono text-xs text-muted">internal, open-sourced</span>
+                    </div>
+                    <p class="text-sm text-muted leading-relaxed max-w-2xl">
+                        Shared Go middleware package for OpenTelemetry instrumentation. Automatically instruments
+                        HTTP/gRPC requests, outgoing calls, database queries, and Kafka operations. Used by all
+                        14 backend services at Arclight with zero manual instrumentation needed for new services.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <h3 class="font-semibold text-bright">Structured Logging RFC</h3>
+                        <span class="font-mono text-xs text-muted">internal standard</span>
+                    </div>
+                    <p class="text-sm text-muted leading-relaxed max-w-2xl">
+                        Authored the internal logging specification and built a shared Go library adopted across
+                        28 engineers and 14 services. Includes PII scrubbing middleware that caught and redacted
+                        14K instances of sensitive data in its first month.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="h-px bg-border"></div>
+
+        <!-- Thinking About -->
+        <section class="py-16 sm:py-24">
+            <h2 class="font-mono text-xs font-medium text-muted uppercase tracking-widest mb-10">
+                <span class="text-blueLight">#</span> Currently Thinking About
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="bg-raised border border-border rounded-lg p-5">
+                    <h3 class="font-mono text-sm font-medium text-bright mb-2">Multi-tenant isolation patterns</h3>
+                    <p class="text-sm text-muted leading-relaxed">
+                        When RLS is enough, when you need schema-per-tenant, and when you need separate databases.
+                        The trade-offs are more nuanced than most blog posts suggest.
+                    </p>
+                </div>
+                <div class="bg-raised border border-border rounded-lg p-5">
+                    <h3 class="font-mono text-sm font-medium text-bright mb-2">eBPF for observability</h3>
+                    <p class="text-sm text-muted leading-relaxed">
+                        Transparent instrumentation without library dependencies. Started with packet capture at
+                        Relay, now watching what Cilium and Pixie are doing at the kernel level.
+                    </p>
+                </div>
+                <div class="bg-raised border border-border rounded-lg p-5">
+                    <h3 class="font-mono text-sm font-medium text-bright mb-2">Streaming vs. batch trade-offs</h3>
+                    <p class="text-sm text-muted leading-relaxed">
+                        Most teams default to streaming when batch would serve them fine. The operational cost of
+                        real-time is higher than people think. Figuring out where the line is.
+                    </p>
+                </div>
+                <div class="bg-raised border border-border rounded-lg p-5">
+                    <h3 class="font-mono text-sm font-medium text-bright mb-2">Cost-aware architecture</h3>
+                    <p class="text-sm text-muted leading-relaxed">
+                        Saved $127K/month at Cortex by rethinking autoscaling signals. Cloud spend is an
+                        architecture problem, not an ops problem.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="h-px bg-border"></div>
 
         <!-- About -->
-        <section class="py-12 sm:py-16">
-            <h2 class="text-sm font-semibold uppercase tracking-wider text-accent mb-4">About</h2>
-            <p class="text-gray-600 leading-relaxed text-[15px]">
-                Software engineer with 5 years of experience building backend systems and APIs at high-growth B2B SaaS companies. I design services that handle billions of events per day, improve system reliability, and cut infrastructure costs without sacrificing performance. My strongest work has been in distributed systems, API design, and observability -- the kind of backend plumbing that makes products reliable at scale.
-            </p>
-        </section>
+        <section id="about" class="py-16 sm:py-24">
+            <h2 class="font-mono text-xs font-medium text-muted uppercase tracking-widest mb-10">
+                <span class="text-blueLight">#</span> About
+            </h2>
 
-        <hr class="border-gray-100">
-
-        <!-- Experience -->
-        <section class="py-12 sm:py-16">
-            <h2 class="text-sm font-semibold uppercase tracking-wider text-accent mb-8">Experience</h2>
-
-            <div class="mb-10">
-                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-                    <h3 class="text-lg font-semibold text-gray-900">Senior Software Engineer</h3>
-                    <span class="text-sm text-gray-400 mt-0.5 sm:mt-0">Jan 2023 -- Present</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
+                <div class="sm:col-span-2">
+                    <p class="text-fg leading-relaxed mb-4">
+                        I'm a backend engineer in San Francisco. I studied Computer Science at Georgia Tech,
+                        concentrating in Systems & Architecture, and I've spent the last five years building the
+                        kind of infrastructure that's invisible when it works and painful when it doesn't.
+                    </p>
+                    <p class="text-muted leading-relaxed mb-4">
+                        My strongest work is in the space between "we need this to handle 10x more traffic" and
+                        "we have zero budget for new infrastructure." I care about systems that are as easy to
+                        operate at 3 AM as they are to architect on a whiteboard.
+                    </p>
+                    <p class="text-muted leading-relaxed">
+                        Outside of work, I play chess competitively and contribute to open source on weekends,
+                        mostly infrastructure tooling. Both scratch the same itch: pattern recognition, thinking
+                        several moves ahead, and knowing when to sacrifice short-term advantage for long-term position.
+                    </p>
                 </div>
-                <p class="text-sm text-accent font-medium mb-3">Arclight Security &middot; Series C &middot; 200 employees</p>
-                <ul class="space-y-2 text-[15px] text-gray-600 leading-relaxed">
-                    <li>Architected the real-time threat detection pipeline processing 2.3B security events/day across 400+ tenants using Go, Kafka, and ClickHouse. Reduced mean detection time from 14 minutes to 47 seconds.</li>
-                    <li>Led migration from a monolithic Django API to 6 Go microservices behind an API gateway. Cut p99 latency from 820ms to 95ms and enabled daily deployments.</li>
-                    <li>Designed the multi-tenant data isolation layer using PostgreSQL row-level security. Zero cross-tenant data leaks across 18 months of production operation.</li>
-                    <li>Built a compliance reporting engine that generates SOC 2 and ISO 27001 reports across terabytes of audit log data in under 90 seconds (previously 45 minutes).</li>
-                    <li>Implemented distributed tracing across 14 backend services using OpenTelemetry and Grafana Tempo. Reduced mean time to root cause from 2.5 hours to 25 minutes.</li>
-                </ul>
-            </div>
-
-            <div class="mb-10">
-                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-                    <h3 class="text-lg font-semibold text-gray-900">Backend Engineer</h3>
-                    <span class="text-sm text-gray-400 mt-0.5 sm:mt-0">Jun 2021 -- Dec 2022</span>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-mono text-xs text-muted uppercase tracking-wider mb-2">Stack</h3>
+                        <div class="space-y-1.5 text-sm">
+                            <p class="text-fg">Go, Python, TypeScript</p>
+                            <p class="text-muted">PostgreSQL, ClickHouse, Kafka, Redis</p>
+                            <p class="text-muted">AWS, Kubernetes, Terraform</p>
+                            <p class="text-muted">OpenTelemetry, Grafana, Datadog</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-mono text-xs text-muted uppercase tracking-wider mb-2">Certifications</h3>
+                        <div class="space-y-1.5 text-sm text-muted">
+                            <p>AWS Solutions Architect - Associate</p>
+                            <p>Certified Kubernetes Administrator</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-mono text-xs text-muted uppercase tracking-wider mb-2">Links</h3>
+                        <div class="space-y-1.5 text-sm">
+                            <p><a href="https://github.com/danielokafor" class="text-blueLight hover:text-bright transition-colors">github.com/danielokafor</a></p>
+                            <p><a href="https://linkedin.com/in/danielokafor" class="text-blueLight hover:text-bright transition-colors">linkedin.com/in/danielokafor</a></p>
+                            <p><a href="mailto:daniel@danielokafor.me" class="text-blueLight hover:text-bright transition-colors">daniel@danielokafor.me</a></p>
+                        </div>
+                    </div>
                 </div>
-                <p class="text-sm text-accent font-medium mb-3">Cortex Labs &middot; Series B &middot; 100 employees</p>
-                <ul class="space-y-2 text-[15px] text-gray-600 leading-relaxed">
-                    <li>Owned the model serving API handling 50M+ requests/day with p99 latency under 200ms. Built request batching and adaptive load shedding that maintained SLA during 3x traffic spikes.</li>
-                    <li>Designed the feature store ingestion pipeline processing 800GB of streaming data daily from customer Kafka clusters. Reduced feature freshness from 15 minutes to under 30 seconds.</li>
-                    <li>Reduced monthly AWS spend by $127K (22%) by implementing queue-depth autoscaling and migrating cold model artifacts to S3 Intelligent-Tiering.</li>
-                    <li>Built the A/B experimentation framework for model deployments with automatic rollback on latency regressions. Adopted by 60% of enterprise customers within 6 months.</li>
-                </ul>
-            </div>
-
-            <div class="mb-10">
-                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-                    <h3 class="text-lg font-semibold text-gray-900">Software Engineer</h3>
-                    <span class="text-sm text-gray-400 mt-0.5 sm:mt-0">Jul 2019 -- May 2021</span>
-                </div>
-                <p class="text-sm text-accent font-medium mb-3">Relay Systems &middot; Seed Stage &middot; 25 employees</p>
-                <ul class="space-y-2 text-[15px] text-gray-600 leading-relaxed">
-                    <li>Built the API traffic capture agent from scratch in Go -- a lightweight sidecar processing 12M requests/day with less than 2ms overhead. Deployed across 180+ customer environments.</li>
-                    <li>Designed the anomaly detection service identifying latency spikes and schema drift in real-time. Reduced mean time to detection from hours to 90 seconds.</li>
-                    <li>Built the API changelog feature end-to-end (backend + React), which became the #2 most-used feature by DAU within 3 months.</li>
-                </ul>
-            </div>
-        </section>
-
-        <hr class="border-gray-100">
-
-        <!-- Skills -->
-        <section class="py-12 sm:py-16">
-            <h2 class="text-sm font-semibold uppercase tracking-wider text-accent mb-6">Skills</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-[15px]">
-                <div>
-                    <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Languages</h3>
-                    <p class="text-gray-600">Go, Python, TypeScript, SQL</p>
-                </div>
-                <div>
-                    <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Infrastructure</h3>
-                    <p class="text-gray-600">AWS, Kubernetes, Docker, Terraform</p>
-                </div>
-                <div>
-                    <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Data & Messaging</h3>
-                    <p class="text-gray-600">PostgreSQL, ClickHouse, Kafka, Redis</p>
-                </div>
-                <div>
-                    <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">APIs & Observability</h3>
-                    <p class="text-gray-600">GraphQL, gRPC, OpenTelemetry, Grafana</p>
-                </div>
-            </div>
-        </section>
-
-        <hr class="border-gray-100">
-
-        <!-- Education -->
-        <section class="py-12 sm:py-16">
-            <h2 class="text-sm font-semibold uppercase tracking-wider text-accent mb-4">Education</h2>
-            <div>
-                <h3 class="font-semibold text-gray-900">Georgia Institute of Technology</h3>
-                <p class="text-sm text-gray-500 mt-0.5">B.S. Computer Science, Systems & Architecture &middot; 2019</p>
-            </div>
-        </section>
-
-        <hr class="border-gray-100">
-
-        <!-- Contact -->
-        <section class="py-12 sm:py-16">
-            <h2 class="text-sm font-semibold uppercase tracking-wider text-accent mb-4">Contact</h2>
-            <div class="space-y-2 text-[15px]">
-                <p class="text-gray-600"><span class="text-gray-400 inline-block w-16">Email</span> <a href="mailto:daniel@danielokafor.me" class="text-accent hover:underline">daniel@danielokafor.me</a></p>
-                <p class="text-gray-600"><span class="text-gray-400 inline-block w-16">Based in</span> San Francisco, CA</p>
             </div>
         </section>
 
     </main>
 
-    <footer class="border-t border-gray-100">
-        <div class="max-w-3xl mx-auto px-6 py-8 text-center text-xs text-gray-300">
-            &copy; 2026 Daniel Okafor
+    <footer class="border-t border-border">
+        <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between text-xs text-muted">
+            <span class="font-mono">Daniel Okafor</span>
+            <span class="mt-2 sm:mt-0">Open to senior backend and infrastructure roles. <a href="mailto:daniel@danielokafor.me" class="text-blueLight hover:text-bright transition-colors">Get in touch</a>.</span>
         </div>
     </footer>
 
