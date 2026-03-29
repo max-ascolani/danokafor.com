@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Okafor</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <meta property="og:title" content="Daniel Okafor — Backend & Infrastructure Engineer">
+    <meta property="og:description" content="Senior software engineer focused on backend systems, distributed architectures, and observability. Currently building threat detection infrastructure at Arclight Security.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="headshot.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
@@ -32,8 +37,8 @@
         }
     </script>
     <style>
-        body { font-family: 'Inter', system-ui, sans-serif; }
-        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        body { font-family: 'Space Grotesk', system-ui, sans-serif; }
+        .font-mono, code { font-family: 'JetBrains Mono', monospace; }
         ::selection { background: #264653; color: #e6edf3; }
         .stat-num { font-variant-numeric: tabular-nums; }
     </style>
@@ -43,7 +48,7 @@
     <!-- Nav -->
     <nav class="border-b border-border">
         <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-            <span class="font-mono text-sm font-medium text-bright">danielokafor<span class="text-blueLight">.me</span></span>
+            <span class="font-mono text-sm font-medium text-bright">danokafor<span class="text-blueLight">.com</span></span>
             <div class="flex items-center gap-6 text-sm text-muted">
                 <a href="#work" class="hover:text-bright transition-colors">Work</a>
                 <a href="#oss" class="hover:text-bright transition-colors">Open Source</a>
@@ -74,7 +79,7 @@
                         <span class="text-border">|</span>
                         <span>Georgia Tech '19</span>
                         <span class="text-border">|</span>
-                        <a href="mailto:daniel@danielokafor.me" class="text-blueLight hover:text-bright transition-colors">daniel@danielokafor.me</a>
+                        <a href="mailto:daniel@danokafor.com" class="text-blueLight hover:text-bright transition-colors">daniel@danokafor.com</a>
                     </div>
                 </div>
             </div>
@@ -362,33 +367,43 @@
                 <span class="text-blueLight">#</span> Currently Thinking About
             </h2>
 
+            <!-- ASCII comment block -->
+            <div class="font-mono text-xs text-muted/50 mb-8 leading-relaxed">
+                <p>// TODO: write these up properly</p>
+                <p>// for now, working notes:</p>
+            </div>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div class="bg-raised border border-border rounded-lg p-5">
-                    <h3 class="font-mono text-sm font-medium text-bright mb-2">Multi-tenant isolation patterns</h3>
+                    <h3 class="font-mono text-sm font-medium text-bright mb-2">eBPF vs. sidecar proxies</h3>
                     <p class="text-sm text-muted leading-relaxed">
-                        When RLS is enough, when you need schema-per-tenant, and when you need separate databases.
-                        The trade-offs are more nuanced than most blog posts suggest.
+                        Whether eBPF-based observability can replace sidecar proxies for service mesh telemetry.
+                        Cilium is making a strong case, but the debugging story when things go wrong at the kernel
+                        level is still rough. Tradeoff between operational simplicity and observability depth.
                     </p>
                 </div>
                 <div class="bg-raised border border-border rounded-lg p-5">
-                    <h3 class="font-mono text-sm font-medium text-bright mb-2">eBPF for observability</h3>
+                    <h3 class="font-mono text-sm font-medium text-bright mb-2">CRDTs vs. operational transforms</h3>
                     <p class="text-sm text-muted leading-relaxed">
-                        Transparent instrumentation without library dependencies. Started with packet capture at
-                        Relay, now watching what Cilium and Pixie are doing at the kernel level.
+                        The tradeoffs of CRDTs vs operational transforms for real-time collaboration -- been
+                        reading Martin Kleppmann's work. CRDTs have better theoretical properties but the
+                        metadata overhead is nontrivial. OT is battle-tested but centralization is a hard constraint.
                     </p>
                 </div>
                 <div class="bg-raised border border-border rounded-lg p-5">
-                    <h3 class="font-mono text-sm font-medium text-bright mb-2">Streaming vs. batch trade-offs</h3>
+                    <h3 class="font-mono text-sm font-medium text-bright mb-2">Microservice migrations fail at data</h3>
                     <p class="text-sm text-muted leading-relaxed">
-                        Most teams default to streaming when batch would serve them fine. The operational cost of
-                        real-time is higher than people think. Figuring out where the line is.
+                        Why most microservice migrations fail at data ownership, not service boundaries.
+                        The Arclight migration reinforced this -- we could split services relatively cleanly,
+                        but untangling shared database tables took 3x longer than expected.
                     </p>
                 </div>
                 <div class="bg-raised border border-border rounded-lg p-5">
-                    <h3 class="font-mono text-sm font-medium text-bright mb-2">Cost-aware architecture</h3>
+                    <h3 class="font-mono text-sm font-medium text-bright mb-2">Weekend project: chess engine in Rust</h3>
                     <p class="text-sm text-muted leading-relaxed">
-                        Saved $127K/month at Cortex by rethinking autoscaling signals. Cloud spend is an
-                        architecture problem, not an ops problem.
+                        Building a chess engine in Rust as a weekend project. Currently ~1800 ELO on Lichess puzzles.
+                        Using bitboards for board representation and alpha-beta pruning with iterative deepening.
+                        The move generation is fun; the evaluation function is where the interesting decisions live.
                     </p>
                 </div>
             </div>
@@ -442,7 +457,7 @@
                         <div class="space-y-1.5 text-sm">
                             <p><a href="https://github.com/danielokafor" class="text-blueLight hover:text-bright transition-colors">github.com/danielokafor</a></p>
                             <p><a href="https://linkedin.com/in/danielokafor" class="text-blueLight hover:text-bright transition-colors">linkedin.com/in/danielokafor</a></p>
-                            <p><a href="mailto:daniel@danielokafor.me" class="text-blueLight hover:text-bright transition-colors">daniel@danielokafor.me</a></p>
+                            <p><a href="mailto:daniel@danokafor.com" class="text-blueLight hover:text-bright transition-colors">daniel@danokafor.com</a></p>
                         </div>
                     </div>
                 </div>
@@ -454,7 +469,7 @@
     <footer class="border-t border-border">
         <div class="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between text-xs text-muted">
             <span class="font-mono">Daniel Okafor</span>
-            <span class="mt-2 sm:mt-0">Open to senior backend and infrastructure roles. <a href="mailto:daniel@danielokafor.me" class="text-blueLight hover:text-bright transition-colors">Get in touch</a>.</span>
+            <span class="mt-2 sm:mt-0">Open to senior backend and infrastructure roles. <a href="mailto:daniel@danokafor.com" class="text-blueLight hover:text-bright transition-colors">Get in touch</a>.</span>
         </div>
     </footer>
 
